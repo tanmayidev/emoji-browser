@@ -2,3 +2,42 @@
   font-family: Arial, sans-serif;
   margin: 20px;
 }
+
+.emojis {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.emoji-card {
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.emoji-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.emoji-card .emoji {
+  font-size: 30px;
+}
+
+.emoji-card .name {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.emoji-card .category,
+.group,
+.htmlCode {
+  margin-top: 5px;
+  font-style: italic;
+  color: #777;
+}
