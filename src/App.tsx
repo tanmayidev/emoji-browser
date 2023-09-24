@@ -89,9 +89,15 @@ function App() {
         {getPaginatedEmojis().map((emoji, index) => (
           <div key={index} className="emoji-card">
             <div className="emoji">{getEmojiFromHtmlCode(emoji.htmlCode)}</div>
-            <div className="name">{emoji.name}</div>
-            <div className="category">{emoji.category}</div>
-            <div className="group">Group : {emoji.group}</div>
+            <div className="name" data-testid={`name-${index}`}>
+              {emoji.name}
+            </div>
+            <div className="category" data-testid={`category-${index}`}>
+              Category : {emoji.category}
+            </div>
+            <div className="group" data-testid={`group-${index}`}>
+              Group : {emoji.group}
+            </div>
             <div className="htmlCode">HTML Code : {emoji.htmlCode}</div>
           </div>
         ))}
