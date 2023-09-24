@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { CATEGORIES } from "./constants";
 
 interface Emoji {
   name: string;
@@ -9,7 +10,7 @@ interface Emoji {
 }
 
 function App() {
-  const [filteredEmojis, setFilteredEmojis] = useState<Emoji[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [emojis, setEmojis] = useState<Emoji[]>([]);
 
   useEffect(() => {
@@ -35,11 +36,37 @@ function App() {
     return code;
   };
 
+  const filteredEmojis = emojis.filter(
+    (emoji) => !selectedCategory || emoji.category === selectedCategory
+  );
+
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedCategory(event.target.value);
+  };
+
   return (
     <div className="App">
       <h1>Emoji Hub</h1>
+      <div className="filter">
+        <label htmlFor="category">Filter by Category:</label>
+        <select
+          id="category"
+          value={selectedCategory}
+          onChange={handleCategoryChange}
+        >
+          {Array.from(new Set(emojis.map((emoji) => emoji.category))).map(
+            (category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            )
+          )}
+        </select>
+      </div>
       <div className="emojis">
-        {emojis.map((emoji, index) => (
+        {filteredEmojis.map((emoji, index) => (
           <div key={index} className="emoji-card">
             <div className="emoji">{getEmojiFromHtmlCode(emoji.htmlCode)}</div>
             <div className="name">{emoji.name}</div>
