@@ -9,6 +9,7 @@ interface Emoji {
 }
 
 function App() {
+  const [filteredEmojis, setFilteredEmojis] = useState<Emoji[]>([]);
   const [emojis, setEmojis] = useState<Emoji[]>([]);
 
   useEffect(() => {
@@ -36,15 +37,18 @@ function App() {
 
   return (
     <div className="App">
-      {emojis.map((emoji, index) => (
-        <div key={index} className="emoji-card">
-          <div className="emoji">{getEmojiFromHtmlCode(emoji.htmlCode)}</div>
-          <div className="name">{emoji.name}</div>
-          <div className="category">{emoji.category}</div>
-          <div className="group">Group : {emoji.group}</div>
-          <div className="htmlCode">HTML Code : {emoji.htmlCode}</div>
-        </div>
-      ))}
+      <h1>Emoji Hub</h1>
+      <div className="emojis">
+        {emojis.map((emoji, index) => (
+          <div key={index} className="emoji-card">
+            <div className="emoji">{getEmojiFromHtmlCode(emoji.htmlCode)}</div>
+            <div className="name">{emoji.name}</div>
+            <div className="category">{emoji.category}</div>
+            <div className="group">Group : {emoji.group}</div>
+            <div className="htmlCode">HTML Code : {emoji.htmlCode}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
