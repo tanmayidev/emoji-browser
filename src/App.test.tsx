@@ -70,7 +70,7 @@ beforeEach(() => {
 
 test("renders the app", () => {
   render(<App />);
-  const headerElement = screen.getByText(/Emoji Hub/);
+  const headerElement = screen.getByText(/Emoji Browser/);
   expect(headerElement).toBeInTheDocument();
   const dropdownElement = screen.getByText(/Filter by Category/);
   expect(dropdownElement).toBeInTheDocument();

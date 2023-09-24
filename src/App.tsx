@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Emoji Hub</h1>
+      <h1>Emoji Browser</h1>
       <div className="filter-pagination-container">
         <div className="filter">
           <label htmlFor="category">Filter by Category:</label>

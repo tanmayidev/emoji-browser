@@ -1,6 +1,6 @@
 {
-  "homepage": "http://tanmayidev.github.io/emoji-hub/",
-  "name": "emoji-hub",
+  "homepage": "http://tanmayidev.github.io/emoji-browser/",
+  "name": "emoji-browser",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
