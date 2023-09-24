@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { CATEGORIES } from "./constants";
+import Pagination from "./components/Pagination";
 
 interface Emoji {
   name: string;
@@ -10,8 +10,10 @@ interface Emoji {
 }
 
 function App() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [emojis, setEmojis] = useState<Emoji[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     // Fetch emoji details from the API
@@ -46,27 +48,42 @@ function App() {
     setSelectedCategory(event.target.value);
   };
 
+  // Get the emojis for the current page
+  const getPaginatedEmojis = (): Emoji[] => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+
+    return filteredEmojis.slice(startIndex, startIndex + itemsPerPage);
+  };
+
   return (
     <div className="App">
       <h1>Emoji Hub</h1>
-      <div className="filter">
-        <label htmlFor="category">Filter by Category:</label>
-        <select
-          id="category"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          {Array.from(new Set(emojis.map((emoji) => emoji.category))).map(
-            (category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            )
-          )}
-        </select>
+      <div className="filter-pagination-container">
+        <div className="filter">
+          <label htmlFor="category">Filter by Category:</label>
+          <select
+            id="category"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            {Array.from(new Set(emojis.map((emoji) => emoji.category))).map(
+              (category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              )
+            )}
+          </select>
+        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={Math.ceil(filteredEmojis.length / itemsPerPage)}
+          onPageChange={setCurrentPage}
+        />
       </div>
+
       <div className="emojis">
-        {filteredEmojis.map((emoji, index) => (
+        {getPaginatedEmojis().map((emoji, index) => (
           <div key={index} className="emoji-card">
             <div className="emoji">{getEmojiFromHtmlCode(emoji.htmlCode)}</div>
             <div className="name">{emoji.name}</div>

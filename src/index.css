@@ -7,6 +7,20 @@ h1 {
   text-align: center;
 }
 
+.filter-pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 858px) {
+  .filter-pagination-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .filter {
   display: flex;
   align-items: center;
