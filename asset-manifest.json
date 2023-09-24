@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/emoji-hub/static/css/main.f8c41e0d.css",
-    "main.js": "/emoji-hub/static/js/main.389e190b.js",
-    "static/js/787.6e1795ec.chunk.js": "/emoji-hub/static/js/787.6e1795ec.chunk.js",
-    "index.html": "/emoji-hub/index.html",
-    "main.f8c41e0d.css.map": "/emoji-hub/static/css/main.f8c41e0d.css.map",
-    "main.389e190b.js.map": "/emoji-hub/static/js/main.389e190b.js.map",
-    "787.6e1795ec.chunk.js.map": "/emoji-hub/static/js/787.6e1795ec.chunk.js.map"
+    "main.css": "/emoji-browser/static/css/main.f8c41e0d.css",
+    "main.js": "/emoji-browser/static/js/main.5264c2fa.js",
+    "static/js/787.1664b32e.chunk.js": "/emoji-browser/static/js/787.1664b32e.chunk.js",
+    "index.html": "/emoji-browser/index.html",
+    "main.f8c41e0d.css.map": "/emoji-browser/static/css/main.f8c41e0d.css.map",
+    "main.5264c2fa.js.map": "/emoji-browser/static/js/main.5264c2fa.js.map",
+    "787.1664b32e.chunk.js.map": "/emoji-browser/static/js/787.1664b32e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8c41e0d.css",
-    "static/js/main.389e190b.js"
+    "static/js/main.5264c2fa.js"
   ]
 }
