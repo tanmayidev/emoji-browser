@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Pagination from "./components/Pagination";
+import Loader from "./components/Loader";
 
 interface Emoji {
   name: string;
@@ -13,6 +14,7 @@ function App() {
   const [emojis, setEmojis] = useState<Emoji[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -21,6 +23,7 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setEmojis(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching emojis:", error);
@@ -81,7 +84,7 @@ function App() {
           onPageChange={setCurrentPage}
         />
       </div>
-
+      {isLoading ? <Loader /> : null}
       <div className="emojis">
         {getPaginatedEmojis().map((emoji, index) => (
           <div key={index} className="emoji-card">
