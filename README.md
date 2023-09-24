@@ -1,5 +1,7 @@
 # Emoji Browser
 
+- [Link](https://tanmayidev.github.io/emoji-browser/)
+
 ## Setup Details
 
 ### `npm start`
@@ -17,15 +19,15 @@ Builds the app for production to the `build` folder.\
 
 ## App Requirements
 
-- Develop a pseudo front end application that lets users conveniently list and browse all emojis.
+Develop a pseudo front end application that lets users conveniently list and browse all emojis.
 
-- [] Use of Web API to fetch emoji details.
-- [] Utilize Response parameters: [name, category, group, htmlCode]
-- [] Implement functionality to list the HTML code of emojis on a web page.
-- [] The design should be responsive for mobile, tablet, and desktop views.
-- [] Display all emojis in the card layout with all the response parameters.
-- [] A feature to filter the emojis by “category”
-- [] Pagination feature to list 10 emojis on a page
+- [x] Use of Web API to fetch emoji details.
+- [x] Utilize Response parameters: [name, category, group, htmlCode]
+- [x] Implement functionality to list the HTML code of emojis on a web page.
+- [x] The design should be responsive for mobile, tablet, and desktop views.
+- [x] Display all emojis in the card layout with all the response parameters.
+- [x] A feature to filter the emojis by “category”
+- [x] Pagination feature to list 10 emojis on a page
 
 ## Guide
 
